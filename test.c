@@ -1,4 +1,4 @@
-#include  <mlx.h>//"./minilibx-linux/mlx.h"
+#include  "./minilibx-linux/mlx.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -15,6 +15,10 @@ typedef struct	s_image{
 	int		height;
 	char	*path;
 	void	*image;
+	void	*addr;
+	int		bit;
+	int		size_line;
+	int		endian;
 }				t_image;
 
 typedef struct	s_param{
@@ -41,17 +45,6 @@ int key(int keycode, t_param *param)
 	return(0);
 }
 
-int	put_image(t_vars *vars)
-{
-	int		width;
-	int		height;
-	void	*image;
-
-	image = mlx_xpm_file_to_image(vars->mlx, "test.xpm", &width, &height);
-	mlx_put_image_to_window(vars->mlx, vars->win, image, 50, 50);
-	return(0);
-}
-
 int	main(void)
 {
 	t_image	image;
@@ -60,17 +53,19 @@ int	main(void)
 
 	vars.mlx = mlx_init();
 	vars.win = mlx_new_window(vars.mlx, 500, 500, "Hello world!");
-	image.image = mlx_xpm_file_to_image(vars.mlx, "./image/test.xpm", &image.width, &image.height);
-	mlx_put_image_to_window(vars.mlx, vars.win, image.image, 50, 50);
-	//mlx_string_put ( vars.mlx, vars.win, 200, 200, 255, "CONTINUATION" );
-	//mlx_key_hook(vars.win, key_hook, &vars);
-	//mlx_destroy_image(vars.mlx, image1.image);
-	//mlx_hook(vars.win, 17, 1 << 17, close, &vars);//
-	//mlx_loop_hook(vars.mlx, put_image, &vars);
-	//mlx_hook(vars.win , KEY_EVENT, 0, key, param);
+	image.image = mlx_xpm_file_to_image(vars.mlx, "cat.xpm", &image.width, &image.height);
+	mlx_put_image_to_window(vars.mlx, vars.win, image.image, 100,100);
 	mlx_loop(vars.mlx);
 	return(0);
 }
 
 //  gcc test.c ./minilibx-linux/libmlx.a -lXext -lX11 //wsl
+//  gcc test.c ./minilibx-linux/libmlx.a -lXext -lX11 //wsl
 //  gcc test.c -Lmlx -lmlx -framework OpenGL -framework AppKit //校舎
+//  gcc test.c -Lmlx -lmlx -framework OpenGL -framework AppKit //校舎
+
+	//mlx_key_hook(vars.win, key_hook, &vars);
+	//mlx_destroy_image(vars.mlx, image1.image);
+	//mlx_loop_hook(vars.mlx, put_image, &vars);
+	//mlx_hook(vars.win , KEY_EVENT, 0, key, param);
+	//mlx_hook(vars.win, 17, 1 << 17, close, &vars);

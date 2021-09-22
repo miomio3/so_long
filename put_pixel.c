@@ -20,7 +20,7 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 
 int	close(void)
 {
-	exit(1);
+	exit(0);
 	return(0);
 }
 

@@ -1,7 +1,7 @@
 NAME = a.out
 CC = gcc
 FLUG = ./minilibx-linux/libmlx.a -lXext -lX11
-SRC = main.c close.c put_image.c
+SRC = main.c libft.c libft2.c error.c read_map.c
 
 all		:$(NAME)
 $(NAME)	:$(SRC)

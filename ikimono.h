@@ -21,10 +21,10 @@ typedef struct  s_vars
 typedef struct  s_data
 {
     char    **map;
-    int     kiyoe_version[2];
-    int     leader_version[2];
-    int     hocchi_version[2];
-    int     TV_version;
+    int     kiyoe_ver[2];
+    int     leader_ver[2];
+    int     hocchi_ver[2];
+    int     TV_ver;
 }               t_data;
 
 //libft1

@@ -63,6 +63,17 @@ void    copy_array(t_data *data, char *array)
     (*data).map[i] = NULL;
 }
 
+void    init_player(t_data *data)
+{
+    (*data).kiyoe_ver[0] = 0;
+    (*data).kiyoe_ver[1] = 0;
+    (*data).leader_ver[0] = 0;
+    (*data).leader_ver[1] = 0;
+    (*data).hocchi_ver[0] = 0;
+    (*data).hocchi_ver[1] = 0;
+    (*data).TV_ver = 0;
+}
+
 void    init_data(t_data *data, char *array)
 {
     int width;
@@ -76,5 +87,6 @@ void    init_data(t_data *data, char *array)
         exit(-1);
     }
     copy_array(data, array);
+    init_player(data);
     safe_free(array);
 }

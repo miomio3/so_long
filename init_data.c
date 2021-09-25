@@ -58,6 +58,7 @@ void    copy_array(t_data *data, char *array)
             n++;
         }
     }
+    (*data).map[i] = NULL;
 }
 
 void    init_data(t_data *data, char *array)

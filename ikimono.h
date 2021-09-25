@@ -41,6 +41,8 @@ int     count_nl(char *array);
 void    print_arg_error(void);
 void    print_malloc_error(void);
 //read_map
-void    read_map(char *argv, char *array);
+char    *read_map(char *argv);
+//init_data
+void    init_data(t_data *data, char *array);
 
 #endif

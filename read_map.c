@@ -55,12 +55,15 @@ char *read_arg(char *argv)
     return(ret);
 }
 
-void    read_map(char *argv, char *array)
+char    *read_map(char *argv)
 {
+    char    *array;
+
     array = read_arg(argv);
     if(array[0] == '\0' || check_map(array) == ERROR)
     {
         safe_free(array);
         print_arg_error();
     }
+    return(array);
 }

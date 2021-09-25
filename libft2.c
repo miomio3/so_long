@@ -25,3 +25,29 @@ char    *ft_strjoin_free(char *array1, char *array2)
     safe_free(array1);
     return(ret);
 }
+
+int ft_len2nl(char *array)
+{
+    int i;
+
+    i = 0;
+    while(array[i] != '\n')
+        i++;
+    return(i);
+}
+
+int count_nl(char *array)
+{
+    int i;
+    int ret;
+
+    i = 0;
+    ret = 0;
+    while(array[i])
+    {
+        if(array[i] == '\n')
+            ret++;
+        i++;
+    }
+    return(ret);
+}

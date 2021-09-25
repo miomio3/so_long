@@ -1,21 +1,11 @@
 #include "ikimono.h"
 
-int ft_len2nl(char *array)
+int check_0last_line(char *array, int line_len)
 {
     int i;
 
     i = 0;
-    while(array[i] != '\n')
-        i++;
-    return(i);
-}
-
-int check_0last_line(char *array)
-{
-    int i;
-
-    i = 0;
-    while(array[i] != '\n' && array[i] != '\0')
+    while(i < line_len - 1)
     {
         if(array[i] != '1')
             return(ERROR);
@@ -29,9 +19,9 @@ int check_map(char *array)
     int line_len;
     int i;
 
-    if(check_0last_line(array) == ERROR)
-        return(ERROR);
     line_len = ft_len2nl(array) + 1;
+    if(check_0last_line(array, line_len) == ERROR)
+        return(ERROR);
     i = line_len;
     while(array[i + line_len + 1])
     {
@@ -39,7 +29,7 @@ int check_map(char *array)
             return(ERROR);
         i = i + line_len;
     }
-    if(i == line_len || check_0last_line(&array[i]) == ERROR)
+    if(i == line_len || check_0last_line(&array[i], line_len) == ERROR)
         return(ERROR);
     return(NOERROR);
 }
@@ -55,7 +45,7 @@ char *read_arg(char *argv)
     ret = NULL;
 	if (fd == -1)
 	{
-		printf("fail\n");
+		printf("File_open failed\n");
 		exit(-1);
 	}
     while(read(fd, array, 100) > 0)
@@ -65,14 +55,12 @@ char *read_arg(char *argv)
     return(ret);
 }
 
-int read_map(char *argv, char *array)
+void    read_map(char *argv, char *array)
 {
     array = read_arg(argv);
     if(array[0] == '\0' || check_map(array) == ERROR)
     {
         safe_free(array);
-        arg_error();
-        exit(-1);
+        print_arg_error();
     }
-    return(NOERROR);
 }

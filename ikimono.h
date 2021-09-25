@@ -21,6 +21,10 @@ typedef struct  s_vars
 typedef struct  s_data
 {
     char    **map;
+    int     kiyoe_version[2];
+    int     leader_version[2];
+    int     hocchi_version[2];
+    int     TV_version;
 }               t_data;
 
 //libft1
@@ -31,10 +35,12 @@ void    ft_strcopy(char *ret, char *array);
 //libft2
 void    safe_free(char *array);
 char    *ft_strjoin_free(char *array1, char *array2);
+int     ft_len2nl(char *array);
+int     count_nl(char *array);
 //error
-void    arg_error(void);
-
+void    print_arg_error(void);
+void    print_malloc_error(void);
 //read_map
-int read_map(char *argv, char *array);
+void    read_map(char *argv, char *array);
 
 #endif

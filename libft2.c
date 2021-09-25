@@ -49,5 +49,5 @@ int count_nl(char *array)
             ret++;
         i++;
     }
-    return(ret);
+    return(ret + 1);
 }

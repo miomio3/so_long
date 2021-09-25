@@ -10,6 +10,7 @@ void    free_data(t_data *data, int n)
         free((*data).map[i]);
         i++;
     }
+    free((*data).map);
 }
 
 int malloc_map(t_data *data, int width, int height)
@@ -51,8 +52,9 @@ void    copy_array(t_data *data, char *array)
         (*data).map[i][j] = array[n];
         j++;
         n++;
-        if(array[n] == '\n')
+        if(array[n] == '\n' || array[n] == '\0')
         {
+            (*data).map[i][j] = '\0';
             j = 0;
             i++;
             n++;

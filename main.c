@@ -9,4 +9,6 @@ int main(int argc, char **argv)
         print_arg_error();
     array = read_map(argv[1]);
     init_data(&data, array);
+	run_animation();
+	return(0);
 }

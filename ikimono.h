@@ -9,22 +9,36 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 
-#define ERROR   -1
-#define NOERROR 1
+#define ERROR   	-1
+#define NOERROR 	1
 
-#define KIYOE	0
-#define LEADER	1
-#define	HOCCHI	2
+#define KIYOE		0
+#define LEADER		1
+#define	HOCCHI		2
 
-#define	NORMAL	0
-#define	SING	1
-#define HOS		2
-#define CASTLE	3
+#define	NORMAL		0
+#define	SING		1
+#define HOS			2
+#define CASTLE		3
 
-#define UP		0
-#define DOWN	1
-#define RIGHT	2
-#define LEFT	3
+#define	WALL		0
+#define	FIELD		1
+#define	HOSPITAL	2
+#define	CASTLE		3
+
+#define UP1			0
+#define UP2			1
+#define DOWN1		2
+#define DOWN2		3
+#define RIGHT1		4
+#define RIGHT2		5
+#define LEFT1		6
+#define LEFT2		7
+
+#define	CHARA_NUM	3
+#define VER_NUM		4
+#define DIRE_NUM	8
+#define OBJ_NUM		4
 
 typedef struct  s_vars
 {
@@ -44,9 +58,9 @@ typedef struct  s_data
 typedef struct	s_image
 {
 	void	*image;
+	char	*path;
 	int		width;
 	int		height;
-	char	*path;
 	int		*addr;
 	int		bit;
 	int		size;
@@ -63,15 +77,12 @@ typedef struct	s_image
 
 typedef struct	s_characters
 {
-	t_image		player[3][4][4];
+	t_image		player[CHARA_NUM][VER_NUM][DIRE_NUM];
 	/* t_player	kiyoe;
 	t_player	leader;
 	t_player	hocchi; */
 
-	t_image		wall;
-	t_image		field;
-	t_image		castle;
-	t_image		hospital;
+	t_image		obj[4];
 	t_image		TV[4];
 }				t_characters;
 
@@ -85,6 +96,7 @@ void    safe_free(char *array);
 char    *ft_strjoin_free(char *array1, char *array2);
 int     ft_len2nl(char *array);
 int     count_nl(char *array);
+char	*ft_strdup(char *s);
 //error
 void    print_arg_error(void);
 void    print_malloc_error(void);
@@ -92,5 +104,9 @@ void    print_malloc_error(void);
 char    *read_map(char *argv);
 //init_data
 void    init_data(t_data *data, char *array);
+//init_character_path
+void	init_characters_path(t_characters *characters);
+//init_characters_image
+void	init_characters_image(t_characters characters, t_vars vars);
 
 #endif

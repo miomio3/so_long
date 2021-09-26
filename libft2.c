@@ -51,3 +51,15 @@ int count_nl(char *array)
     }
     return(ret + 1);
 }
+
+char	*ft_strdup(char *s)
+{
+	int		i;
+	char	*p;
+
+	i = ft_strlen(s);
+	p = malloc(sizeof(char) * i + 1);
+	ft_strcopy(p, s);
+	p[i] = '\0';
+	return(p);
+}

@@ -28,6 +28,7 @@ int check_map(char *array)
         if(array[i] != '1' || array[i + line_len - 2] != '1')
             return(ERROR);
         i = i + line_len;
+		//printf("%c\n", array[i + line_len -1]);debug
     }
     if(i == line_len || check_0last_line(&array[i], line_len) == ERROR)
         return(ERROR);
@@ -41,6 +42,7 @@ char *read_arg(char *argv)
     char    *ret;
 
     fd = open(argv, O_RDONLY);
+	
     ft_bzero(array, 101);
     ret = NULL;
 	if (fd == -1)
@@ -49,7 +51,10 @@ char *read_arg(char *argv)
 		exit(-1);
 	}
     while(read(fd, array, 100) > 0)
-        ret = ft_strjoin_free(ret, array);
+	{
+		ret = ft_strjoin_free(ret, array);
+		ft_bzero(array, 101);
+	}
     if(ret == NULL)
         exit(-1);
     return(ret);

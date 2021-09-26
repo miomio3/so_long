@@ -15,6 +15,7 @@ void	run_animation(t_data data)
 	t_vars 			vars;
 
 	vars = make_window(data);
-	init_map(data);
+	init_characters_image(characters, vars);
+	init_map(characters, vars, data);
 	mlx_loop(vars.mlx);
 }

@@ -28,4 +28,9 @@ void	init_characters_path(t_characters *characters)
 	init_obj(&(*characters).obj[FIELD], "./image/test.xpm");
 	init_obj(&(*characters).obj[HOSPITAL], "./image/test.xpm");
 	init_obj(&(*characters).obj[CASTLE], "./image/test.xpm");
+	init_obj(&(*characters).TV[0], "./image/test.xpm");
+	init_obj(&(*characters).TV[1], "./image/test.xpm");
+	init_obj(&(*characters).TV[2], "./image/test.xpm");
+	init_obj(&(*characters).TV[3], "./image/test.xpm");
+	init_obj(&(*characters).TV[4], "./image/test.xpm");
 }

@@ -36,6 +36,7 @@ int malloc_map(t_data *data, int width, int height)
         i++;
     }
     (*data).map[i] = NULL;
+	return(NOERROR);
 }
 
 void    copy_array(t_data *data, char *array)
@@ -63,7 +64,7 @@ void    copy_array(t_data *data, char *array)
     (*data).map[i] = NULL;
 }
 
-void    init_player(t_data *data)
+static void    init_player(t_data *data)
 {
     (*data).kiyoe_ver[0] = 0;
     (*data).kiyoe_ver[1] = 0;

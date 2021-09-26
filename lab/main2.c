@@ -23,5 +23,5 @@ int	main(void)
 
 //  gcc test.c ./minilibx-linux/libmlx.a -lXext -lX11 //wsl
 //  gcc test.c ./minilibx-linux/libmlx.a -lXext -lX11 //wsl
-//  gcc test.c -Lmlx -lmlx -framework OpenGL -framework AppKit //校舎
-//  gcc test.c -Lmlx -lmlx -framework OpenGL -framework AppKit //校舎
+//  gcc test.c -lmlx -framework OpenGL -framework AppKit //校舎
+//  gcc test.c -lmlx -framework OpenGL -framework AppKit //校舎

@@ -40,6 +40,8 @@
 #define DIRE_NUM	8
 #define OBJ_NUM		4
 
+#define	WIN_UNIT	20
+
 typedef struct  s_vars
 {
     void    *mlx;
@@ -53,6 +55,8 @@ typedef struct  s_data
     int     leader_ver[2];
     int     hocchi_ver[2];
     int     TV_ver;
+	int		width;
+	int		height;
 }               t_data;
 
 typedef struct	s_image
@@ -108,5 +112,7 @@ void    init_data(t_data *data, char *array);
 void	init_characters_path(t_characters *characters);
 //init_characters_image
 void	init_characters_image(t_characters characters, t_vars vars);
+//run_animation
+void	run_animation(t_data data);
 
 #endif

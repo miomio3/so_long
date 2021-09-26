@@ -87,6 +87,8 @@ void    init_data(t_data *data, char *array)
         safe_free(array);
         exit(-1);
     }
+	(*data).width = width;
+	(*data).height = height;
     copy_array(data, array);
     init_player(data);
     safe_free(array);

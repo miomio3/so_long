@@ -23,7 +23,7 @@ int check_map(char *array)
     if(check_0last_line(array, line_len) == ERROR)
         return(ERROR);
     i = line_len;
-    while(array[i + line_len + 1])
+    while(array[i + line_len -1])
     {
         if(array[i] != '1' || array[i + line_len - 2] != '1')
             return(ERROR);

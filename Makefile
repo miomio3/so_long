@@ -1,7 +1,7 @@
 NAME = a.out
 CC = gcc
 FLUG = -lmlx -framework OpenGL -framework AppKit ##./minilibx-linux/libmlx.a -lXext -lX11
-SRC = main.c libft.c libft2.c error.c read_map.c init_data.c init_characters_path.c init_characters_image.c
+SRC = main.c libft.c libft2.c error.c read_map.c init_data.c init_characters_path.c init_characters_image.c run_animation.c
 
 all		:$(NAME)
 $(NAME)	:$(SRC)

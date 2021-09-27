@@ -8,7 +8,7 @@ void    ft_putstr(char *array)
     write(1, array, i);
 }
 
-void    ft_bzero(char array[101], int n)
+void    ft_bzero(char *array, int n)
 {
     int          	i;
     unsigned char   *d;
@@ -16,10 +16,7 @@ void    ft_bzero(char array[101], int n)
     i = -1;
 	d = (unsigned char *)array;
     while(++i < n)
-	{
-		printf("%d回目", i);
         d[i] = '\0';
-	}
 }
 
 void    ft_strcopy(char *ret, char *array)

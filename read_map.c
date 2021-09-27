@@ -38,25 +38,28 @@ int check_map(char *array)
 char *read_arg(char *argv)
 {
     int     fd;
-    char    array[101];
+    char    *array;
     char    *ret;
 
     fd = open(argv, O_RDONLY);
-	
+    array = malloc(sizeof(char) * 101);
+    if(array == NULL)
+        exit(-1);
     ft_bzero(array, 101);
     ret = NULL;
 	if (fd == -1)
 	{
 		printf("File_open failed\n");
-		exit(-1);
+		exit_free(array);
 	}
     while(read(fd, array, 100) > 0)
 	{
 		ret = ft_strjoin_free(ret, array);
-		ft_bzero(array, 101);
+        if(ret == NULL)
+            exit_free(array);
+		ft_bzero(array, 100);
 	}
-    if(ret == NULL)
-        exit(-1);
+    free(array);
     return(ret);
 }
 

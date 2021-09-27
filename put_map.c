@@ -12,10 +12,10 @@ void	put_TV(t_characters characters, t_vars vars, t_data data, int i, int j)
 
 void	put_player(t_characters characters, t_vars vars, t_data data, int i, int j)
 {
-	mlx_put_image_to_window(vars.mlx, vars.win, characters.player[data.map[i][j] - KIYOE_PIECE][data.kiyoe_ver[0]][data.kiyoe_ver[1]].image, WIN_UNIT * i, WIN_UNIT * j);
+	mlx_put_image_to_window(vars.mlx, vars.win, characters.player[data.map[i][j] - KIYOE_PIECE][data.player_ver[data.map[i][j] - KIYOE_PIECE][0]][data.player_ver[data.map[i][j] - KIYOE_PIECE][1]].image, WIN_UNIT * i, WIN_UNIT * j);
 }
 
-void	init_map(t_characters characters, t_vars vars, t_data data)
+void	put_map(t_characters characters, t_vars vars, t_data data)
 {
 	int	i;
 	int	j;

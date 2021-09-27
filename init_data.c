@@ -17,7 +17,7 @@ int malloc_map(t_data *data, int width, int height)
 {
     int i;
 
-    (*data).map = malloc(sizeof(char *) * height + 1); //最後はNULLを詰める用
+    (*data).map = malloc(sizeof(char *) * height); //最後はNULLを詰める
     if((*data).map == NULL)
     {
         ft_putstr("Malloc Error\n");
@@ -66,12 +66,14 @@ void    copy_array(t_data *data, char *array)
 
 static void    init_player(t_data *data)
 {
-    (*data).kiyoe_ver[0] = 0;
-    (*data).kiyoe_ver[1] = 0;
-    (*data).leader_ver[0] = 0;
-    (*data).leader_ver[1] = 0;
-    (*data).hocchi_ver[0] = 0;
-    (*data).hocchi_ver[1] = 0;
+    int i;
+    int j;
+
+    i = -1;
+    j = -1;
+    while(++i < CHARA_NUM)
+        while(++j < VER_NUM)
+            (*data).player_ver[i][j] = 0;
     (*data).TV_ver = 0;
 }
 

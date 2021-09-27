@@ -59,6 +59,8 @@ char	*ft_strdup(char *s)
 
 	i = ft_strlen(s);
 	p = malloc(sizeof(char) * i + 1);
+    if(p == NULL)
+        return(NULL);
 	ft_strcopy(p, s);
 	p[i] = '\0';
 	return(p);
